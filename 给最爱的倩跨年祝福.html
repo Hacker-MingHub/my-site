@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给最爱的你 - 元旦跨年祝福</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            /* 更喜庆的跨年背景 - 红金渐变，象征喜庆和新年 */
+            background: linear-gradient(135deg, 
+                #d32f2f 0%,     /* 深红 */
+                #f44336 25%,    /* 正红 */
+                #ff9800 50%,    /* 橙色 */
+                #ffeb3b 75%,    /* 金黄色 */
+                #4CAF50 100%    /* 新年新气象的绿色 */
+            );
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* 喜庆的动态背景动画 */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* 喜庆的彩色飘带效果 */
+        .ribbons {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .ribbon {
+            position: absolute;
+            width: 80px;
+            height: 200px;
+            background: linear-gradient(45deg, 
+                rgba(255, 36, 0, 0.3),
+                rgba(255, 215, 0, 0.3)
+            );
+            transform: rotate(45deg);
+            animation: ribbonFloat 8s infinite linear;
+            border-radius: 10px;
+        }
+        
+        @keyframes ribbonFloat {
+            0% { transform: rotate(45deg) translateY(100vh) translateX(-100px); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: rotate(45deg) translateY(-200px) translateX(100px); opacity: 0; }
+        }
+        
+        /* 新年彩屑效果 */
+        .confetti {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffeb3b;
+            animation: confettiFall 5s infinite linear;
+        }
+        
+        .confetti-piece:nth-child(odd) {
+            background: #f44336;
+        }
+        
+        .confetti-piece:nth-child(3n) {
+            background: #4CAF50;
+        }
+        
+        .confetti-piece:nth-child(5n) {
+            background: #2196F3;
+        }
+        
+        @keyframes confettiFall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* 头部样式 - 更喜庆的标题 */
+        header {
+            text-align: center;
+            padding: 30px 15px 20px;
+            width: 100%;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 新年主题的灯笼装饰 */
+        .lanterns {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 40px;
+        }
+        
+        .lantern {
+            width: 30px;
+            height: 40px;
+            background: #f44336;
+            border-radius: 50% 50% 40% 40%;
+            position: relative;
+            animation: lanternSwing 3s ease-in-out infinite;
+        }
+        
+        .lantern:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 10px;
+            background: #ff9800;
+            border-radius: 50%;
+        }
+        
+        .lantern:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 15px;
+            background: #ff9800;
+        }
+        
+        @keyframes lanternSwing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .title {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, 
+                #fff 20%,
+                #ffeb3b 40%,
+                #ff9800 60%,
+                #f44336 80%,
+                #fff 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            letter-spacing: 3px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 5px 20px rgba(255, 235, 59, 0.4); }
+            100% { text-shadow: 0 5px 30px rgba(255, 152, 0, 0.6); }
+        }
+        
+        .title::before,
+        .title::after {
+            content: "🎊";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            animation: emojiJump 1.5s infinite;
+        }
+        
+        .title::before {
+            left: -40px;
+            animation-delay: 0s;
+        }
+        
+        .title::after {
+            right: -40px;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes emojiJump {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-70%) scale(1.2); }
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #fff8e1;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            letter-spacing: 1.5px;
+            font-weight: 400;
+            position: relative;
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(255, 68, 0, 0.2);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 235, 59, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 68, 0, 0.2);
+        }
+        
+        /* 照片展示区 */
+        .memories-section {
+            width: 100%;
+            margin: 20px 0 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-out 0.3s both;
+            position: relative;
+        }
+        
+        .memories-title {
+            font-size: 2.2rem;
+            color: #fff8e1;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #f44336, #ff9800);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .memories-title::before,
+        .memories-title::after {
+            content: "🎉";
+            font-size: 1.8rem;
+            margin: 0 15px;
+        }
+        
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .memory-photo {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 200px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            background: linear-gradient(45deg, #f44336, #ff9800);
+            animation: photoAppear 0.6s ease-out;
+            animation-fill-mode: both;
+            border: 3px solid rgba(255, 235, 59, 0.5);
+        }
+        
+        .memory-photo:nth-child(1) { animation-delay: 0.1s; }
+        .memory-photo:nth-child(2) { animation-delay: 0.2s; }
+        .memory-photo:nth-child(3) { animation-delay: 0.3s; }
+        .memory-photo:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes photoAppear {
+            from { opacity: 0; transform: scale(0.9) rotate(-5deg); }
+            to { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+        
+        .memory-photo:hover {
+            transform: translateY(-10px) scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(244, 67, 54, 0.4);
+            border-color: rgba(255, 235, 59, 0.8);
+        }
+        
+        .memory-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .memory-photo:hover img {
+            transform: scale(1.1);
+        }
+        
+        .photo-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 68, 0, 0.9);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            z-index: 2;
+            border: 2px solid #ffeb3b;
+        }
+        
+        /* 祝福语区域 - 喜庆风格 */
+        .message-section {
+            width: 100%;
+            background: linear-gradient(135deg, 
+                rgba(244, 67, 54, 0.15),
+                rgba(255, 152, 0, 0.15),
+                rgba(255, 235, 59, 0.15)
+            );
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 35px 30px;
+            box-shadow: 
+                0 15px 35px rgba(244, 67, 54, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 235, 59, 0.4);
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-section::before {
+            content: "✨";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5rem;
+            animation: sparkle 2s infinite;
+        }
+        
+        .message-section::after {
+            content: "✨";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            animation: sparkle 2s infinite 1s;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .message-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #fff8e1;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        
+        .message-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #ffeb3b, 
+                #ff9800, 
+                #ffeb3b, 
+                transparent
+            );
+            border-radius: 2px;
+        }
+        
+        .message-content {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            text-align: justify;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+            color: #fff;
+        }
+        
+        .message-content p {
+            margin-bottom: 25px;
+            text-indent: 2em;
+            position: relative;
+        }
+        
+        .message-content p:first-child {
+            text-indent: 0;
+        }
+        
+        .highlight {
+            color: #ffeb3b;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding: 0 4px;
+            text-shadow: 0 2px 5px rgba(255, 68, 0, 0.5);
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #ffeb3b, 
+                transparent
+            );
+            opacity: 0.8;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 50px;
+            font-size: 1.9rem;
+            color: #ffeb3b;
+            padding-right: 15px;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+            float: right;
+            font-weight: 600;
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", cursive, sans-serif;
+            animation: signaturePulse 2s infinite;
+        }
+        
+        @keyframes signaturePulse {
+            0%, 100% { opacity: 0.9; }
+            50% { opacity: 1; }
+        }
+        
+        .signature::before {
+            content: "💌";
+            position: absolute;
+            left: -45px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.8rem;
+            animation: heartBeat 1.5s infinite;
+        }
+        
+        /* 底部样式 */
+        footer {
+            text-align: center;
+            padding: 35px 0;
+            width: 100%;
+            color: #fff8e1;
+            font-size: 1.3rem;
+            border-top: 2px solid rgba(255, 235, 59, 0.3);
+            margin-top: 30px;
+            font-weight: 400;
+            animation: fadeIn 1s ease-out 0.9s both;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "🎆";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            background: rgba(244, 67, 54, 0.3);
+            padding: 0 20px;
+        }
+        
+        .heart-beat {
+            color: #ff4444;
+            animation: heartBeat 1.5s infinite;
+            display: inline-block;
+            margin: 0 8px;
+            font-size: 1.6rem;
+        }
+        
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1.1); }
+            15% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* 照片查看器 */
+        .photo-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(244, 67, 54, 0.95),
+                rgba(255, 152, 0, 0.95)
+            );
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        
+        .viewer-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .viewer-content img {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 15px;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.4),
+                0 0 0 10px rgba(255, 235, 59, 0.3);
+            object-fit: contain;
+            border: 5px solid #fff;
+        }
+        
+        .viewer-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(244, 67, 54, 0.9);
+            border: 2px solid #ffeb3b;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            font-weight: 400;
+            transition: all 0.3s ease;
+        }
+        
+        .viewer-close:hover {
+            background: rgba(255, 68, 0, 1);
+            transform: scale(1.1);
+        }
+        
+        .viewer-caption {
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.4rem;
+            padding: 15px 25px;
+            max-width: 500px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 235, 59, 0.3);
+        }
+        
+        /* 新年倒计时装饰 */
+        .new-year-decoration {
+            text-align: center;
+            margin: 20px 0;
+            color: rgba(255, 248, 225, 0.7);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            animation: fadeIn 1s ease-out 0.7s both;
+            position: relative;
+            padding: 10px 0;
+        }
+        
+        .new-year-decoration::before,
+        .new-year-decoration::after {
+            content: "✦";
+            color: #ffeb3b;
+            margin: 0 20px;
+            font-size: 1.5rem;
+            animation: spin 3s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .title::before,
+            .title::after {
+                font-size: 2rem;
+                left: -30px;
+                right: -30px;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+                padding: 8px 20px;
+            }
+            
+            .memories-title {
+                font-size: 1.8rem;
+            }
+            
+            .photos-grid {
+                gap: 15px;
+            }
+            
+            .memory-photo {
+                height: 170px;
+            }
+            
+            .message-section {
+                padding: 25px 20px;
+            }
+            
+            .message-title {
+                font-size: 1.7rem;
+            }
+            
+            .message-content {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            
+            .signature {
+                font-size: 1.6rem;
+            }
+            
+            footer {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            
+            .title::before,
+            .title::after {
+                font-size: 1.5rem;
+                left: -20px;
+                right: -20px;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+                padding: 6px 15px;
+            }
+            
+            .memories-title {
+                font-size: 1.5rem;
+            }
+            
+            .photos-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .memory-photo {
+                height: 220px;
+            }
+            
+            .message-title {
+                font-size: 1.5rem;
+            }
+            
+            .message-content {
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+            
+            .signature {
+                font-size: 1.4rem;
+            }
+            
+            footer {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 喜庆装饰元素 -->
+    <div class="ribbons" id="ribbons"></div>
+    <div class="confetti" id="confetti"></div>
+    
+    <!-- 照片查看器 -->
+    <div class="photo-viewer" id="photoViewer">
+        <div class="viewer-content">
+            <button class="viewer-close" id="closeViewer">&times;</button>
+            <img id="viewerImage" src="" alt="查看照片">
+            <div class="viewer-caption" id="viewerCaption"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <!-- 灯笼装饰 -->
+            <div class="lanterns">
+                <div class="lantern"></div>
+                <div class="lantern"></div>
+            </div>
+            
+            <h1 class="title">元旦快乐，我的倩倩</h1>
+            <p class="subtitle">新的一年，愿我们继续岁岁年年，相伴永远</p>
+        </header>
+        
+        <!-- 新年装饰 -->
+        <div class="new-year-decoration">新年快乐 ✨ 万事如意</div>
+        
+        <!-- 我们的甜蜜回忆照片展示区 -->
+        <div class="memories-section">
+            <h2 class="memories-title">我们的甜蜜回忆</h2>
+            <div class="photos-grid" id="photosGrid">
+                <!-- 4张照片将通过JavaScript动态添加 -->
+            </div>
+        </div>
+        
+        <!-- 祝福语区域 -->
+        <div class="message-section">
+            <h2 class="message-title">致我最爱的你</h2>
+            <div class="message-content">
+                <p>亲爱的，</p>
+                <p>今天是<span class="highlight">2025年12月31日</span>，本是一个平常的日子，但因为你的出现，赋予了这一天<span class="highlight">爱的意义</span>。</p>
+                <p>虽然我们的故事才刚刚开始半年，但遇到了就希望<span class="highlight">余生都是你</span>。</p>
+                <p>喜欢和你每天的<span class="highlight">碎碎念</span>，分享生活中的点点滴滴，然后一直<span class="highlight">岁岁年年</span>！</p>
+                <p>未来也许会有很多磕磕绊绊，但我相信，<span class="highlight">终将修成属于我们的爱情正果</span>。</p>
+                <p class="signature">永远爱你的明儿 ❤️</p>
+            </div>
+        </div>
+        
+        <!-- 新年装饰 -->
+        <div class="new-year-decoration">新年大吉 ✨ 幸福美满</div>
+        
+        <footer>
+            <p>新的一年，我会继续<span class="heart-beat">❤️</span>陪在你身边一年又一年！</p>
+            <p style="margin-top: 15px; font-size: 1rem; opacity: 0.8;">© 2025 明儿的跨年祝福 | 仅献给我最爱的你</p>
+        </footer>
+    </div>
+
+    <script>
+        // 照片数据
+        const photos = [
+            {
+                src: "https://gitee.com/zzuming/123/raw/master/photo1.jpg",
+                alt: "我们的美好时刻1",
+                caption: "这张照片记录了我们美好的回忆 ❤️"
+            },
+            {
+                src: "https://gitee.com/zzuming/123/raw/master/photo2.jpg",
+                alt: "我们的美好时刻2",
+                caption: "和你在一起的每一刻都值得珍藏"
+            },
+            {
+                src: "https://gitee.com/zzuming/123/raw/master/photo3.jpg",
+                alt: "我们的美好时刻3",
+                caption: "你的笑容是我最大的幸福"
+            },
+            {
+                src: "https://gitee.com/zzuming/123/raw/master/photo4.jpg",
+                alt: "我们的美好时刻4",
+                caption: "愿我们的故事永远继续下去"
+            }
+        ];
+        
+        // 创建喜庆装饰
+        function createCelebrationElements() {
+            const ribbonsContainer = document.getElementById('ribbons');
+            const confettiContainer = document.getElementById('confetti');
+            
+            // 创建飘带
+            for (let i = 0; i < 6; i++) {
+                const ribbon = document.createElement('div');
+                ribbon.classList.add('ribbon');
+                ribbon.style.left = Math.random() * 100 + 'vw';
+                ribbon.style.animationDelay = Math.random() * 8 + 's';
+                ribbon.style.width = (Math.random() * 40 + 60) + 'px';
+                ribbon.style.height = (Math.random() * 100 + 150) + 'px';
+                ribbonsContainer.appendChild(ribbon);
+            }
+            
+            // 创建彩屑
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                confetti.style.width = (Math.random() * 8 + 6) + 'px';
+                confetti.style.height = (Math.random() * 8 + 6) + 'px';
+                confettiContainer.appendChild(confetti);
+            }
+        }
+        
+        // 初始化照片
+        function initPhotos() {
+            const photosGrid = document.getElementById('photosGrid');
+            
+            photos.forEach((photo, index) => {
+                const photoItem = document.createElement('div');
+                photoItem.className = 'memory-photo';
+                photoItem.dataset.index = index;
+                
+                const img = document.createElement('img');
+                img.src = photo.src;
+                img.alt = photo.alt;
+                img.loading = "lazy";
+                
+                img.onload = function() {
+                    const number = createPhotoNumber(index + 1);
+                    photoItem.innerHTML = '';
+                    photoItem.appendChild(img);
+                    photoItem.appendChild(number);
+                    
+                    photoItem.addEventListener('click', () => {
+                        openPhotoViewer(index, false);
+                    });
+                };
+                
+                img.onerror = function() {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'photo-placeholder';
+                    placeholder.innerHTML = `🎁`;
+                    placeholder.style.display = 'flex';
+                    placeholder.style.alignItems = 'center';
+                    placeholder.style.justifyContent = 'center';
+                    placeholder.style.fontSize = '3rem';
+                    photoItem.innerHTML = '';
+                    photoItem.appendChild(placeholder);
+                    photoItem.appendChild(createPhotoNumber(index + 1));
+                    
+                    photoItem.addEventListener('click', () => {
+                        openPhotoViewer(index, true);
+                    });
+                };
+                
+                photosGrid.appendChild(photoItem);
+            });
+        }
+        
+        function createPhotoNumber(num) {
+            const number = document.createElement('div');
+            number.className = 'photo-number';
+            number.textContent = num;
+            return number;
+        }
+        
+        function openPhotoViewer(index, isError) {
+            const viewer = document.getElementById('photoViewer');
+            const viewerImage = document.getElementById('viewerImage');
+            const viewerCaption = document.getElementById('viewerCaption');
+            
+            if (isError) {
+                viewerImage.style.display = 'none';
+                viewerCaption.textContent = "照片加载中，请稍候...";
+                viewerCaption.style.color = "#ffeb3b";
+                viewerCaption.style.fontSize = "1.3rem";
+            } else if (photos[index]) {
+                viewerImage.style.display = 'block';
+                viewerImage.src = photos[index].src;
+                viewerImage.alt = photos[index].alt;
+                viewerCaption.textContent = photos[index].caption;
+                viewerCaption.style.color = "#fff";
+                viewerCaption.style.fontSize = "1.4rem";
+            }
+            
+            viewer.style.display = 'flex';
+        }
+        
+        document.getElementById('closeViewer').addEventListener('click', function() {
+            document.getElementById('photoViewer').style.display = 'none';
+        });
+        
+        document.getElementById('photoViewer').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            createCelebrationElements();
+            initPhotos();
+            
+            // 添加一些新年音效触发（可选）
+            document.querySelector('.title').addEventListener('click', function() {
+                // 可以在这里添加新年音效
+                console.log("🎉 新年快乐！");
+            });
+        });
+    </script>
+</body>
+</html>
